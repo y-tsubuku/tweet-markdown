@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 markdown-here">
+      <%= form_for(@post) do |f| %>
+        <% if @post.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@post.errors.count, "error") %> prohibited this markdown from being tweeted:</h2>
+            <ul>
+              <% @post.errors.full_messages.each do |message| %>
+                <li class="text-danger"><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <% if signed_in? %>
+          <div class="md-form">
+            <i class="fa fa-twitter prefix"></i>
+            <%= f.text_field :tweet, class: 'md-textarea', placeholder: '# tweet', maxlength: 80 %>
+            <%= f.label :tweet %>
+          </div>
+          <div class="md-form">
+            <i class="fa fa-pencil-square-o prefix"></i>
+            <%= f.text_area :markdown, class: 'md-textarea ajax-body', placeholder: '# markdown', maxlength: 4096, required: true %>
+            <%= f.label :markdown %>
+          </div>
+          <%= button_tag class: 'btn btn-primary float-right text-lowercase	', data: { disable_with: 'tweeting...' } do %>
+            <i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;
+          <% end %>
+        <% else %>
+          <div class="md-form">
+            <i class="fa fa-twitter prefix"></i>
+            <%= f.text_field :tweet, class: 'md-textarea', placeholder: '# tweet', maxlength: 80, disabled: true  %>
+            <%= f.label :tweet %>
+          </div>
+          <div class="md-form">
+            <i class="fa fa-pencil-square-o prefix"></i>
+            <%= f.text_area :markdown, class: 'md-textarea ajax-body disabled', placeholder: '# markdown', maxlength: 4096, disabled: true %>
+            <%= f.label :markdown %>
+          </div>
+          <%= button_tag class: 'btn btn-primary float-right text-lowercase	', data: { disable_with: 'tweeting...' }, disabled: true do %>
+            <i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-6" style="border-left: 1px dotted darkgrey">
+      <article class="markdown-body">
+        <div class="ajax-parsed-body">
+          <p class="text-muted">preview</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
