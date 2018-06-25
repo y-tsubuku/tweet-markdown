@@ -1,11 +1,19 @@
-# README
+# Tweet Markdown
+
+![APP_LOGO](https://raw.githubusercontent.com/y-tsubuku/tweet-markdown/feature/images/images/logo.png)
+
+tweet markdown is a web app that let you tweet markdown as image.
+
+## App
+![APP](https://raw.githubusercontent.com/y-tsubuku/tweet-markdown/feature/images/images/app.png)
+
+## Tweet Example
+![EXAMPLE](https://raw.githubusercontent.com/y-tsubuku/tweet-markdown/feature/images/images/tweet_ex2.png)
 
 ## Ruby version
 `2.3.1`
 
-## System dependencies
-
-## bundle install
+## Install Dependencies
 
 ```
 bundle install --path vendor/bundle --without production
