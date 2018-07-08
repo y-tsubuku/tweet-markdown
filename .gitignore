@@ -25,3 +25,5 @@
 /public/uploads
 /.sass-cache/
 *iml
+
+.env
